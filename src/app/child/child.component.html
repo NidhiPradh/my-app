@@ -1,2 +1,44 @@
-<p>child component</p>
+<!-- <p>child component</p>
 <p>Input name: {{ inputName }}</p>
+<input type="text" [(ngModel)]="message" placeholder="Enter something in child component" />
+
+<button (click)="onSend()">Submit</button> -->
+
+<form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm)">
+
+  <h2>{{ isSignup ? 'Sign Up' : 'Sign In' }}</h2>
+
+  <!-- Username only for signup -->
+  <div *ngIf="isSignup">
+    <input
+      type="text"
+      name="username"
+      ngModel
+      required
+      placeholder="Username"
+    />
+  </div>
+
+  <input
+    type="email"
+    name="email"
+    ngModel
+    required
+    email
+    placeholder="Email"
+  />
+
+  <input
+    type="password"
+    name="password"
+    ngModel
+    required
+    minlength="6"
+    placeholder="Password"
+  />
+
+  <button type="submit" [disabled]="templateForm.invalid">
+    {{ isSignup ? 'Sign Up' : 'Sign In' }}
+  </button>
+
+</form>

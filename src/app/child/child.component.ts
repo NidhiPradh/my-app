@@ -1,17 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   standalone: false,
   styleUrls: ['./child.component.css'],
 })
-export class ChildComponent implements OnInit {
-    @Input() inputName: string | undefined 
+export class ChildComponent {
+    // @Input() inputName: string | undefined 
+    // message : string = "";
+    // @Output() sendData = new EventEmitter<string>();
+     @Input() isSignup: boolean = false;
+  @Output() formSubmit = new EventEmitter<any>();
 
-    constructor() { }
-    ngOnInit(): void {
-        console.log('Child component initialized with inputName:', this.inputName);
-       // throw new Error('Method not implemented.');
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      console.log('Form Data:', form.value);
+      this.formSubmit.emit(form.value);
+
+   
+      }
     }
-}
+  }  
