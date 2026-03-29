@@ -6,10 +6,14 @@ import { App } from './app';
 import { ParentComponent } from './Parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { FormsModule } from '@angular/forms';
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { CommonModule } from '@angular/common';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 
 @NgModule({
-  declarations: [App,ParentComponent,ChildComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [SigninComponent, SignupComponent],
+  imports: [CommonModule, FormsModule, AuthRoutingModule]
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

@@ -4,8 +4,19 @@ import { ParentComponent } from './Parent/parent.component';
 import { App } from './app';
 
 const routes: Routes = [
-  { path: 'parent', component: ParentComponent },
-  { path: '', redirectTo: 'parent', pathMatch: 'full' },
+  { path: '', redirectTo: 'signin', pathMatch: 'full' },
+
+  {
+    path: '',
+    loadChildren: () =>
+      import('./auth/auth.module').then(m => m.AuthModule)
+  },
+
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  }
 ];
 
 @NgModule({

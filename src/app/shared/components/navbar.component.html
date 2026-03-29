@@ -1,0 +1,4 @@
+<nav>
+  <span *ngIf="user">Welcome {{ user.name }}</span>
+  <button *ngIf="user" (click)="logout()">Logout</button>
+</nav>
