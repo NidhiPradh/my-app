@@ -65,3 +65,101 @@ two-way data binding -->
 <ng-template #loading>
   <p>Loading products...</p>
 </ng-template>
+<p>Product form</p>
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+
+  <!-- Product Name -->
+  <div>
+    <label>Product Name *</label>
+    <input 
+      type="text" 
+      name="productName" 
+      [(ngModel)]="product.productName" 
+      required 
+      #productName="ngModel"
+    />
+    <small *ngIf="productName.invalid && productName.touched" style="color:red;">
+      Product Name is required
+    </small>
+  </div>
+
+  <!-- Category -->
+  <div>
+    <label>Category</label>
+    <input type="text" name="productCategory" [(ngModel)]="product.productCategory" />
+  </div>
+
+  <!-- Received Date -->
+  <div>
+    <label>Received Date</label>
+    <input type="date" name="recievedDate" [(ngModel)]="product.recievedDate" />
+  </div>
+
+  <!-- Status -->
+  <div>
+    <label>Status</label>
+    <select name="productStatus" [(ngModel)]="product.productStatus">
+      <option value="">Select</option>
+      <option value="Available">Available</option>
+      <option value="OutOfStock">Out Of Stock</option>
+      <option value="Expired">Expired</option>
+    </select>
+  </div>
+
+  <!-- Batch Number -->
+  <div>
+    <label>Batch Number</label>
+    <input type="text" name="batchNumber" [(ngModel)]="product.batchNumber" />
+  </div>
+
+  <!-- Manufacture Date -->
+  <div>
+    <label>Manufacture Date</label>
+    <input type="date" name="manufactureDate" [(ngModel)]="product.manufactureDate" />
+  </div>
+
+  <!-- Expiry Date -->
+  <div>
+    <label>Expiry Date</label>
+    <input type="date" name="expiryDate" [(ngModel)]="product.expiryDate" />
+  </div>
+
+  <!-- Created By -->
+  <div>
+    <label>Created By</label>
+    <input type="number" name="createdBy" [(ngModel)]="product.createdBy" />
+  </div>
+
+  <!-- Created On -->
+  <div>
+    <label>Created On</label>
+    <input type="date" name="createdOn" [(ngModel)]="product.createdOn" />
+  </div>
+
+  <!-- Updated By -->
+  <div>
+    <label>Updated By</label>
+    <input type="number" name="updatedBy" [(ngModel)]="product.updatedBy" />
+  </div>
+
+  <!-- Updated On -->
+  <div>
+    <label>Updated On</label>
+    <input type="date" name="updatedOn" [(ngModel)]="product.updatedOn" />
+  </div>
+
+  <!-- Submit -->
+  <button type="submit" [disabled]="productForm.invalid">
+    Save Product
+  </button>
+
+</form>
+
+<!-- Success / Error Messages -->
+<p *ngIf="successMessage" style="color:green;">
+  {{ successMessage }}
+</p>
+
+<p *ngIf="errorMessage" style="color:red;">
+  {{ errorMessage }}
+</p>
