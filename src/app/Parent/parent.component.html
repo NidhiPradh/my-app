@@ -7,14 +7,61 @@ two-way data binding -->
 <button (click)="onSubmit()">Submit</button> -->
 
 
-  <!-- Toggle -->
-  <button (click)="isSignup = false">Sign In</button>
-  <button (click)="isSignup = true">Sign Up</button>
-<app-child
-  [isSignup]="isSignup"
-  (formSubmit)="handleForm($event)">
-</app-child>
+<!-- Toggle -->
+<!-- <button (click)="isSignup = false">Sign In</button>
+<button (click)="isSignup = true">Sign Up</button>
+
+<app-child [isSignup]="isSignup" (formSubmit)="handleForm($event)" [Sum]="sumresult"></app-child>
+
 <p> Email :{{formData?.email}}</p>
 <p> Password :{{formData?.password}}</p>
+<input type="text" [(ngModel)]="inputOne" id="inputOne" placeholder="Enter input one  result">
+<input type="text" [(ngModel)]="inputTwo" id="inputTwo" placeholder="Enter input two  result">
+<button (click)="calculateSum()">Calculate Sum</button>
+<input type = "text" [(ngModel)]="message" placeholder ="enter message">
 
- 
+
+<app-child-2 [inputMessage]="message"></app-child-2> -->
+
+<h2>Product List</h2>
+{{ products.length }}
+<div *ngIf="products && products.length > 0; else loading">
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Received Date</th>
+      <th>Status</th>
+      <th>Batch</th>
+      <th>Manufacture</th>
+      <th>Expiry</th>
+      <th>Created By</th>
+      <th>Created On</th>
+      <th>Updated By</th>
+      <th>Updated On</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.productID }}</td>
+      <td>{{ product.productName }}</td>
+      <td>{{ product.productCategory }}</td>
+      <td>{{ product.recievedDate | date:'shortDate' }}</td>
+      <td>{{ product.productStatus }}</td>
+      <td>{{ product.batchNumber }}</td>
+      <td>{{ product.manufactureDate | date:'shortDate' }}</td>
+      <td>{{ product.expiryDate | date:'shortDate' }}</td>
+      <td>{{ product.createdBy }}</td>
+      <td>{{ product.createdOn | date:'short' }}</td>
+      <td>{{ product.updatedBy }}</td>
+      <td>{{ product.updatedOn | date:'short' }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<ng-template #loading>
+  <p>Loading products...</p>
+</ng-template>

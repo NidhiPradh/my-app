@@ -1,0 +1,48 @@
+/* Container spacing */
+h2 {
+  margin-bottom: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* Table styling */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.product-table thead {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.product-table th {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Rows */
+.product-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Zebra striping */
+.product-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect */
+.product-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Responsive (optional) */
+@media (max-width: 768px) {
+  .product-table {
+    font-size: 12px;
+  }
+}
