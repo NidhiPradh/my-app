@@ -1,0 +1,6 @@
+<p>Parent component</p>
+<app-child [inputName]="name"></app-child>
+<!-- two-way data binding -->
+<input type="text" [(ngModel)]="inputValue" placeholder="Enter something" />
+
+<button (click)="onSubmit()">Submit</button>
