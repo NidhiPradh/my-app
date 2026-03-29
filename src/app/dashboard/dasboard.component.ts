@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { AuthService, User } from 'src/app/core/services/auth.service';
+import { AuthService, User } from '../core/services/auth.service';
+import { NavbarComponent } from "../shared/components/navbar/navbar.component";
+
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html'
+   standalone: false,
+  templateUrl: './dashboard.component.html',
+  //imports: [NavbarComponent]
 })
 export class DashboardComponent {
   user: User | null = null;

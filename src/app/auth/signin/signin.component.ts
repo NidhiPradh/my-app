@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
+
 
 @Component({
   selector: 'app-signin',
+  standalone: false,
   templateUrl: './signin.component.html'
 })
 export class SigninComponent {

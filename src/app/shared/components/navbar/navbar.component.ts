@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { AuthService, User } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService, User } from '../../../core/services/auth.service';
+import { NgIf } from "../../../../../node_modules/@angular/common/types/_common_module-chunk";
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html'
+  templateUrl: './navbar.component.html',
+  imports: [NgIf]
 })
 export class NavbarComponent {
   user: User | null = null;
