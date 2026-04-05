@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, User } from '../../../core/services/auth.service';
-import { NgIf } from "../../../../../node_modules/@angular/common/types/_common_module-chunk";
+import { AuthService } from '../../../core/services/auth.service';
+import { User } from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-navbar',

@@ -16,7 +16,10 @@ export class SignupComponent {
   onSignup(): void {
     if (!this.name) return;
 
-    this.auth.login({ name: this.name });
+    this.auth.login({
+      username: this.name,
+      password: ''
+    });
     this.router.navigate(['/dashboard']);
   }
 }

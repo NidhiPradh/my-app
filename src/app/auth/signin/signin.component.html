@@ -1,6 +1,76 @@
-<h2>Sign In</h2>
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h1 class="login-title">Welcome Back</h1>
+      <p class="login-subtitle">Sign in to your account</p>
+    </div>
 
-<input type="text" [(ngModel)]="name" placeholder="Enter name" />
-<button (click)="onLogin()">Login</button>
+    <form (ngSubmit)="onLogin()" class="login-form">
+      <!-- Username Field -->
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <div class="input-wrapper">
+          <input 
+            id="username"
+            type="text" 
+            [(ngModel)]="username" 
+            name="username"
+            placeholder="Enter your username" 
+            [disabled]="isLoading"
+            class="form-input"
+            required
+          />
+          <span class="input-icon">👤</span>
+        </div>
+      </div>
 
-<a routerLink="/signup">Go to Signup</a>
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-wrapper">
+          <input 
+            id="password"
+            type="password" 
+            [(ngModel)]="password" 
+            name="password"
+            placeholder="Enter your password" 
+            [disabled]="isLoading"
+            class="form-input"
+            required
+          />
+          <span class="input-icon">🔒</span>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message">
+        <span class="error-icon">⚠️</span>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <!-- Login Button -->
+      <button 
+        type="submit" 
+        [disabled]="isLoading"
+        class="login-button"
+      >
+        <span *ngIf="!isLoading">Sign In</span>
+        <span *ngIf="isLoading" class="loading-text">
+          <span class="spinner"></span> Logging in...
+        </span>
+      </button>
+    </form>
+
+    <!-- Signup Link -->
+    <div class="signup-section">
+      <p>Don't have an account? 
+        <a routerLink="/signup" class="signup-link">Sign up here</a>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="login-footer">
+      <p>Secure Login • Protected Connection</p>
+    </div>
+  </div>
+</div>

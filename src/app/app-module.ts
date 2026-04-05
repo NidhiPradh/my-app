@@ -1,20 +1,22 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { ParentComponent } from './Parent/parent.component';
 import { ChildComponent } from './child/child.component';
-import { FormsModule } from '@angular/forms';
-import { SigninComponent } from './auth/signin/signin.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { CommonModule } from '@angular/common';
-import { AuthRoutingModule } from './auth/auth-routing.module';
+import { FormsModule } from '@angular/forms';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
 @NgModule({
-  declarations: [SigninComponent, SignupComponent],
-  imports: [BrowserModule, CommonModule, FormsModule, AuthRoutingModule, AppRoutingModule],
-  providers: [provideBrowserGlobalErrorListeners()],
+  declarations: [App, ParentComponent, ChildComponent],
+  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, AppRoutingModule],
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [App],
 })
 export class AppModule {}
