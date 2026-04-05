@@ -24,7 +24,7 @@ two-way data binding -->
 <app-child-2 [inputMessage]="message"></app-child-2> -->
 
 <h2>Product List</h2>
-{{ products.length }}
+<!-- {{ products.length }} -->
 <div *ngIf="products && products.length > 0; else loading">
 <table class="product-table">
   <thead>
@@ -63,9 +63,9 @@ two-way data binding -->
 </table>
 </div>
 <ng-template #loading>
-  <p>Loading products...</p>
+  <!-- <p>Loading products...</p> -->
 </ng-template>
-<p>Product form</p>
+<!-- <p>Product form</p> -->
 <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
 
   <!-- Product Name -->
@@ -100,7 +100,7 @@ two-way data binding -->
     <label>Status</label>
     <select name="productStatus" [(ngModel)]="product.productStatus">
       <option value="">Select</option>
-      <option value="Available">Available</option>
+      <option value="Active">Available</option>
       <option value="OutOfStock">Out Of Stock</option>
       <option value="Expired">Expired</option>
     </select>
