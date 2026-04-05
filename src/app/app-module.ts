@@ -9,10 +9,11 @@ import { ChildComponent } from './child/child.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [App, ParentComponent, ChildComponent],
-  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, AppRoutingModule,SharedModule],
   providers: [
     provideBrowserGlobalErrorListeners(),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

@@ -1,4 +1,72 @@
-<nav>
-  <span *ngIf="user">Welcome {{ user.username }}</span>
-  <button *ngIf="user" (click)="logout()">Logout</button>
+<nav class="navbar">
+  <!-- Logo Section -->
+  <div class="navbar-brand">
+    <span class="navbar-logo">💊</span>
+    <span class="navbar-title">PharmaCare</span>
+  </div>
+
+  <!-- Products Menu -->
+  <div class="navbar-menu">
+    <button class="nav-link" (click)="navigateToProducts()">
+      <span class="link-icon">📦</span>
+      <span>Products</span>
+    </button>
+  </div>
+
+  <!-- Right Section: Search Bar + User Menu -->
+  <div class="navbar-right">
+    <!-- Global Search Bar -->
+    <div class="global-search">
+      <input
+        type="text"
+        placeholder="Search..."
+        class="search-bar"
+      />
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <!-- User Menu -->
+    <div class="user-section" *ngIf="user">
+      <button class="user-button" (click)="toggleUserMenu()">
+        <span class="user-icon">👤</span>
+        <span class="user-name">{{ user.username }}</span>
+        <span class="dropdown-arrow" [class.open]="showUserMenu">▼</span>
+      </button>
+
+      <!-- User Dropdown Menu -->
+      <div class="user-dropdown" *ngIf="showUserMenu">
+        <div class="user-info">
+          <div class="user-avatar">👤</div>
+          <div class="user-details">
+            <div class="user-name-full">{{ user.username }}</div>
+            <div class="user-email">{{ user.email || 'user@pharmacare.com' }}</div>
+          </div>
+        </div>
+        <hr class="divider" />
+        <button class="dropdown-item">
+          <span>⚙️</span> Profile Settings
+        </button>
+        <button class="dropdown-item">
+          <span>🛒</span> My Orders
+        </button>
+        <button class="dropdown-item">
+          <span>❤️</span> Favorites
+        </button>
+        <button class="dropdown-item">
+          <span>💬</span> Support
+        </button>
+        <hr class="divider" />
+        <button class="dropdown-item logout-item" (click)="logout()">
+          <span>🚪</span> Logout
+        </button>
+      </div>
+    </div>
+  </div>
 </nav>
+
+<!-- Backdrop for closing dropdowns -->
+<div
+  class="dropdown-backdrop"
+  *ngIf="showUserMenu"
+  (click)="showUserMenu = false"
+></div>

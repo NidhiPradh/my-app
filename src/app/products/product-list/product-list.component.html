@@ -1,0 +1,65 @@
+<div class="product-list-container">
+  <!-- Header -->
+  <div class="product-header">
+    <h1>📦 Product Inventory</h1>
+    <p class="subtitle">Manage pharmaceutical products</p>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading products...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage" class="error-container">
+    <span class="error-icon">⚠️</span>
+    <p>{{ errorMessage }}</p>
+    <button (click)="loadProducts()" class="retry-btn">Retry</button>
+  </div>
+
+  <!-- Products List -->
+  <div *ngIf="!isLoading && !errorMessage" class="products-section">
+    <div *ngIf="products && products.length > 0" class="products-grid">
+      <div *ngFor="let product of products" class="product-card">
+        <div class="product-header-card">
+          <h3 class="product-name">{{ product.productName }}</h3>
+          <span class="status-badge status-available">{{ product.productStatus }}</span>
+        </div>
+
+        <div class="product-body">
+          <div class="product-detail">
+            <span class="label">Category:</span>
+            <span class="value">{{ product.productCategory }}</span>
+          </div>
+          <div class="product-detail">
+            <span class="label">Batch #:</span>
+            <span class="value">{{ product.batchNumber }}</span>
+          </div>
+          <div class="product-detail">
+            <span class="label">Manufactured:</span>
+            <span class="value">{{ formatDate(product.manufactureDate) }}</span>
+          </div>
+          <div class="product-detail">
+            <span class="label">Expires:</span>
+            <span class="value">{{ formatDate(product.expiryDate) }}</span>
+          </div>
+          <div class="product-detail">
+            <span class="label">Received:</span>
+            <span class="value">{{ formatDate(product.recievedDate) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Products Message -->
+    <div *ngIf="!products || products.length === 0" class="no-data">
+      <p>📭 No products found</p>
+    </div>
+  </div>
+
+  <!-- Footer Info -->
+  <div *ngIf="!isLoading && !errorMessage && products && products.length > 0" class="footer-info">
+    <p>Total Products: <strong>{{ products.length }}</strong></p>
+  </div>
+</div>
