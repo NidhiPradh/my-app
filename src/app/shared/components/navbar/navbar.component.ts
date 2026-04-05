@@ -6,7 +6,7 @@ import { NgIf } from "../../../../../node_modules/@angular/common/types/_common_
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  imports: [NgIf]
+  standalone: false
 })
 export class NavbarComponent {
   user: User | null = null;

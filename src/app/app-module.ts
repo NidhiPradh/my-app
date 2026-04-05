@@ -13,7 +13,7 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent],
-  imports: [CommonModule, FormsModule, AuthRoutingModule],
+  imports: [BrowserModule, CommonModule, FormsModule, AuthRoutingModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
