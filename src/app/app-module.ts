@@ -4,15 +4,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { ParentComponent } from './Parent/parent.component';
-import { ChildComponent } from './child/child.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [App, ParentComponent, ChildComponent],
+  declarations: [App],
   imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, AppRoutingModule,SharedModule],
   providers: [
     provideBrowserGlobalErrorListeners(),

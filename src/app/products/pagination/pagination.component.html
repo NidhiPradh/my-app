@@ -1,0 +1,11 @@
+<div class="pagination" *ngIf="totalPages > 1">
+  <button (click)="prev()" [disabled]="currentPage === 1">
+    ⬅ Prev
+  </button>
+
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+
+  <button (click)="next()" [disabled]="currentPage === totalPages">
+    Next ➡
+  </button>
+</div>

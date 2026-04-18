@@ -1,0 +1,17 @@
+<div class="header-container">
+  <!-- Left: Title -->
+  <div class="left">
+    <h1>📦 Product Inventory</h1>
+    <p class="subtitle" style="margin-left: 68px;">  Manage pharmaceutical products</p>
+  </div>
+
+  <!-- Right: Search -->
+  <div class="right">
+    <input
+      type="text"
+      placeholder="Search by product name..."
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+    />
+  </div>
+</div>

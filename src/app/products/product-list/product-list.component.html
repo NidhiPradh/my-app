@@ -1,9 +1,6 @@
 <div class="product-list-container">
   <!-- Header -->
-  <div class="product-header">
-    <h1>📦 Product Inventory</h1>
-    <p class="subtitle">Manage pharmaceutical products</p>
-  </div>
+  <app-product-header (searchChange)="onSearchChange($event)"></app-product-header>
 
   <!-- Loading State -->
   <div *ngIf="isLoading" class="loading-container">
@@ -21,7 +18,7 @@
   <!-- Products List -->
   <div *ngIf="!isLoading && !errorMessage" class="products-section">
     <div *ngIf="products && products.length > 0" class="products-grid">
-      <div *ngFor="let product of products" class="product-card">
+      <div *ngFor="let product of paginatedProducts" class="product-card">
         <div class="product-header-card">
           <h3 class="product-name">{{ product.productName }}</h3>
           <span class="status-badge status-available">{{ product.productStatus }}</span>
@@ -51,15 +48,20 @@
         </div>
       </div>
     </div>
-
+<app-pagination
+  [currentPage]="currentPage"
+  [totalItems]="filteredProducts.length"
+  [pageSize]="pageSize"
+  (pageChange)="onPageChange($event)">
+</app-pagination>
     <!-- No Products Message -->
-    <div *ngIf="!products || products.length === 0" class="no-data">
+    <div *ngIf="!filteredProducts || filteredProducts.length === 0" class="no-data">
       <p>📭 No products found</p>
     </div>
   </div>
 
   <!-- Footer Info -->
-  <div *ngIf="!isLoading && !errorMessage && products && products.length > 0" class="footer-info">
-    <p>Total Products: <strong>{{ products.length }}</strong></p>
+  <div *ngIf="!isLoading && !errorMessage && filteredProducts && filteredProducts.length > 0" class="footer-info">
+    <p>Total Products: <strong>{{ filteredProducts.length }}</strong></p>
   </div>
 </div>
