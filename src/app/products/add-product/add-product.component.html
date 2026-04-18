@@ -1,0 +1,57 @@
+<div class="form-container">
+  <div class="form-card">
+    <h2>Product Form</h2>
+
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" class="form-grid">
+
+
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" name="productName" [(ngModel)]="product.productName" required >
+      </div>
+
+      <div class="form-group">
+        <label>Product Category</label>
+        <input type="text" name="productCategory" [(ngModel)]="product.productCategory" >
+      </div>
+
+      <div class="form-group">
+        <label>Batch Number</label>
+        <input type="text" name="batchNumber" [(ngModel)]="product.batchNumber" >
+      </div>
+
+      <div class="form-group">
+        <label>Received Date</label>
+        <input type="date" name="recievedDate" [(ngModel)]="product.recievedDate" >
+      </div>
+
+      <div class="form-group">
+        <label>Product Status</label>
+        <input type="text" name="productStatus" [(ngModel)]="product.productStatus" >
+      </div>
+
+      <div class="form-group">
+        <label>Manufacture Date</label>
+        <input type="date" name="manufactureDate" [(ngModel)]="product.manufactureDate" >
+      </div>
+
+      <div class="form-group">
+        <label>Expiry Date</label>
+        <input type="date" name="expiryDate" [(ngModel)]="product.expiryDate" >
+      </div>
+
+      <div class="full-width">
+      <button 
+        type="submit" 
+        [disabled]="productForm.invalid"
+        [ngClass]="{
+          'disabled-btn': productForm.invalid,
+          'enabled-btn': productForm.valid
+        }">
+        Submit
+      </button>
+    </div>
+
+    </form>
+  </div>
+</div>

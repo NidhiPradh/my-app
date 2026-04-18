@@ -35,25 +35,24 @@
           </div>
           <div class="product-detail">
             <span class="label">Manufactured:</span>
-            <span class="value">{{ formatDate(product.manufactureDate) }}</span>
+            <span class="value">{{ formatDate(product?.manufactureDate) }}</span>
           </div>
           <div class="product-detail">
             <span class="label">Expires:</span>
-            <span class="value">{{ formatDate(product.expiryDate) }}</span>
+            <span class="value">{{ formatDate(product?.expiryDate) }}</span>
           </div>
           <div class="product-detail">
             <span class="label">Received:</span>
-            <span class="value">{{ formatDate(product.recievedDate) }}</span>
+            <span class="value">{{ formatDate(product?.recievedDate) }}</span>
           </div>
         </div>
       </div>
     </div>
-<app-pagination
-  [currentPage]="currentPage"
-  [totalItems]="filteredProducts.length"
-  [pageSize]="pageSize"
-  (pageChange)="onPageChange($event)">
-</app-pagination>
+
+
+    <app-pagination [currentPage]="currentPage" [totalItems]="filteredProducts.length" [pageSize]="pageSize"
+      (pageChange)="onPageChange($event)">
+    </app-pagination>
     <!-- No Products Message -->
     <div *ngIf="!filteredProducts || filteredProducts.length === 0" class="no-data">
       <p>📭 No products found</p>
@@ -65,3 +64,4 @@
     <p>Total Products: <strong>{{ filteredProducts.length }}</strong></p>
   </div>
 </div>
+<router-outlet></router-outlet>

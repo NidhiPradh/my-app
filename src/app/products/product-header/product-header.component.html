@@ -2,16 +2,13 @@
   <!-- Left: Title -->
   <div class="left">
     <h1>📦 Product Inventory</h1>
-    <p class="subtitle" style="margin-left: 68px;">  Manage pharmaceutical products</p>
+    <p class="subtitle" style="margin-left: 68px;"> Manage pharmaceutical products</p>
   </div>
-
+  <div class="add-product" style="margin-left: 450px;">
+    <button (click)="addProduct()" class="add-btn">➕ Add New Product</button>
+  </div>
   <!-- Right: Search -->
-  <div class="right">
-    <input
-      type="text"
-      placeholder="Search by product name..."
-      [(ngModel)]="searchTerm"
-      (input)="onSearch()"
-    />
+  <div class="right" >
+    <input type="text" placeholder="Search by product name..." [(ngModel)]="searchTerm" (input)="onSearch()" />
   </div>
 </div>

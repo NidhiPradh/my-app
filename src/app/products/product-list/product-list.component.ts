@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -18,7 +19,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +46,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  formatDate(dateString: string): string {
+  formatDate(dateString?: string): string {
     if (!dateString) return 'N/A';
     try {
       return new Date(dateString).toLocaleDateString('en-US', {
@@ -75,5 +77,7 @@ export class ProductListComponent implements OnInit {
 
     this.currentPage = 1;
   }
-  //
+
+
+
 }

@@ -34,15 +34,23 @@ export class AuthService {
       .pipe(
         tap(response => {
           localStorage.setItem(this.tokenKey, response.token);
-          
-          // Create user object from response or just from username
-          const user: User = response.user || {
-            username: credentials.username,
-            token: response.token
-          };
-          
-          localStorage.setItem(this.userKey, JSON.stringify(user));
-          this.userSubject.next(user);
+          // 🔥 Decode JWT
+        const decodedToken = this.decodeToken(response.token);
+
+        // 🔥 Build user object from token
+        const user: User = {
+          id: decodedToken?.UserId || '', // Assuming token has 'id' claim
+          username: decodedToken?.sub || credentials.username, // 'sub' = subject (common in JWT)
+          roles: decodedToken?.role || decodedToken?.roles || [],
+          email: decodedToken?.email || '',
+          token: response.token
+        };
+
+        // Save
+        localStorage.setItem(this.userKey, JSON.stringify(user));
+        this.userSubject.next(user);
+
+        console.log('Decoded Token:', decodedToken);
         })
       );
   }
@@ -75,4 +83,14 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
+  private decodeToken(token: string): any {
+  try {
+    const payload = token.split('.')[1];
+    const decoded = atob(payload); // base64 decode
+    return JSON.parse(decoded);
+  } catch (e) {
+    console.error('Invalid token');
+    return null;
+  }
+}
 }

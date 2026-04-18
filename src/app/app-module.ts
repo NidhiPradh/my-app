@@ -10,11 +10,18 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [App],
-  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, AppRoutingModule,SharedModule],
+  declarations: [App, ],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    SharedModule,
+  ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [App],
 })
