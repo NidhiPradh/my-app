@@ -77,7 +77,10 @@ export class ProductListComponent implements OnInit {
 
     this.currentPage = 1;
   }
-
-
-
+editProduct(productId?: number) {
+  this.router.navigate(['products/add-product', productId]);
 }
+actionOnProduct() {
+  this.router.navigate(['products/add-product']);
+ 
+}}

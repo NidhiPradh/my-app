@@ -1,0 +1,108 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Sample Entry</h5>
+    </div>
+
+    <div class="card-body">
+      <form>
+
+        <!-- Sample Info -->
+        <h6 class="section-title">Sample Information</h6>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Sample Code</label>
+            <input type="text" class="form-control" placeholder="Enter Sample Code">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>Sample Type</label>
+            <input type="text" class="form-control" placeholder="Type (Liquid, Solid...)">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>Pull Point</label>
+            <input type="text" class="form-control" placeholder="Optional">
+          </div>
+        </div>
+
+        <!-- Product & Batch -->
+        <h6 class="section-title">Product Details</h6>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Product</label>
+            <select class="form-control">
+              <option>Select Product</option>
+            </select>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>Batch Number</label>
+            <input type="text" class="form-control" placeholder="Batch No">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>Report</label>
+            <select class="form-control">
+              <option>Select Report</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Status Info -->
+        <h6 class="section-title">Status</h6>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Sample Status</label>
+            <select class="form-control">
+              <option>Received</option>
+              <option>In Progress</option>
+              <option>Completed</option>
+            </select>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>General Status</label>
+            <input type="text" class="form-control" placeholder="Active / Inactive">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>Received Date</label>
+            <input type="datetime-local" class="form-control">
+          </div>
+        </div>
+
+        <!-- Audit Info -->
+        <h6 class="section-title">Audit Information</h6>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label>Created By</label>
+            <select class="form-control"></select>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label>Created On</label>
+            <input type="datetime-local" class="form-control">
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label>Updated By</label>
+            <select class="form-control"></select>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label>Updated On</label>
+            <input type="datetime-local" class="form-control">
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="text-end mt-3">
+          <button type="reset" class="btn btn-secondary me-2">Reset</button>
+          <button type="submit" class="btn btn-success">Save Sample</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div><router-outlet></router-outlet>

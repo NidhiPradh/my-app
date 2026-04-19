@@ -20,6 +20,9 @@ export class NavbarComponent {
   navigateToProducts(): void {
     this.router.navigate(['/products']);
   }
+   navigateToSamples(): void {
+    this.router.navigate(['/samples']);
+  }
 
   toggleUserMenu(): void {
     this.showUserMenu = !this.showUserMenu;

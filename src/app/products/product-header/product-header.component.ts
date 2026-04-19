@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   standalone: false
 })
 export class ProductHeaderComponent {
-/**
- *
- */
-constructor(    private router: Router) {  
-}
+  /**
+   *
+   */
+  constructor(private router: Router) {
+  }
   searchTerm: string = '';
 
   @Output() searchChange = new EventEmitter<string>();
@@ -20,8 +20,8 @@ constructor(    private router: Router) {
   onSearch(): void {
     this.searchChange.emit(this.searchTerm);
   }
-    //add-product
+  //add-product
   addProduct() {
-  this.router.navigate(['products/add-product']);  
+    this.router.navigate(['products/add-product']);
   }
 }

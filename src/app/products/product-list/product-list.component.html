@@ -46,6 +46,15 @@
             <span class="value">{{ formatDate(product?.recievedDate) }}</span>
           </div>
         </div>
+        <div class="product-actions">
+          <button (click)="editProduct(product.productID)" class="edit-btn">
+            ✏️ Edit
+          </button>
+        
+          <button (click)="actionOnProduct()" class="edit-btn">
+            ✏️ Action
+          </button>
+        </div>
       </div>
     </div>
 

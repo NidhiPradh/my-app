@@ -11,19 +11,24 @@
       <span class="link-icon">📦</span>
       <span>Products</span>
     </button>
+    <button class="nav-link" (click)="navigateToSamples()">
+      <span class="link-icon">⚗️</span> 
+      Samples
+    </button>
   </div>
+  
 
   <!-- Right Section: Search Bar + User Menu -->
   <div class="navbar-right">
     <!-- Global Search Bar -->
-    <div class="global-search">
+    <!-- <div class="global-search">
       <input
         type="text"
         placeholder="Search..."
         class="search-bar"
       />
       <span class="search-icon">🔍</span>
-    </div>
+    </div> -->
 
     <!-- User Menu -->
     <div class="user-section" *ngIf="user">

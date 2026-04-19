@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       //import('./auth/auth.module').then(m => m.AuthModule)
-    import('./auth/auth.module').then(m => m.AuthModule)
+      import('./auth/auth.module').then(m => m.AuthModule)
   },
 
   {
@@ -23,8 +23,12 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () =>
-      import('./products/product.module').then(m => m.ProductModule),
+      import('./products/product.module').then(m => m.ProductModule)
     //canActivate: [AuthGuard]
+  },
+  { path: 'samples', 
+    loadChildren: () => 
+      import('./samples/sample.module').then(m => m.SampleModule) 
   }
 ];
 
